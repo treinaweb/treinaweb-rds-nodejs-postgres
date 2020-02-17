@@ -8,7 +8,6 @@ const port = process.env.RDS_PORT || '5432'
 const database = process.env.RDS_DATABASE || 'mydatabase'
 
 var connectionString = process.env.RDS_DSN_URL || `postgres://${username}:${password}@${host}:${port}/${database}`
-console.log(connectionString)
 
 var db = pgp(connectionString)
 

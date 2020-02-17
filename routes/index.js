@@ -4,17 +4,12 @@ var db = require('../db')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log('batata')
-  db.one('SELECT 1 AS value')
+  db.one('SELECT title FROM title')
     .then(function (data) {
-      console.log('entrou')
-      console.log(data)
-      res.render('index', { title: data.value})
+      res.render('index', { title: data.title })
     })
     .catch(function (error) {
-      console.log('erro')
-      console.error(error)
-      res.render('index', { error: error.value})
+      res.render('error', { error: error })
     })
 });
 
